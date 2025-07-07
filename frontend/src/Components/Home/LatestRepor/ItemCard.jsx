@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 const ItemCard = ({ cat }) => {
   return (
-    <div className="w-[300px] shadow-lg rounded-lg bg-white">
+    <div className="w-full sm:w-[280px] md:w-[300px] shadow-lg rounded-lg bg-white flex-grow flex-shrink-0 basis-[280px]">
       <img
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxFj_HODMU6HhtDEUk_8MTxK5_ys9gIvLs5w&s"
-        alt="Alt text"
-        className="max-w-full w-full bagkground-cover rounded-t-lg h-64 object-cover "
+        alt="Lost item"
+        className="w-full rounded-t-lg h-48 sm:h-56 md:h-64 object-cover"
       />
       <div className="p-4">
         {cat == "lost" ? (
@@ -16,14 +16,17 @@ const ItemCard = ({ cat }) => {
           </p>
         ) : (
           <p className="p-1 text-sm my-2 bg-[var(--mint-2)] text-[var(--brunswick-green)] w-fit rounded-xl">
-            found
+            Found
           </p>
         )}
-        <h3 className="font-semibold my-2">iphone 16 pro max</h3>
-        <p>Lost at Central Park on June 15</p>
-        <div className="flex items-center justify-between mt-5">
+        <h3 className="font-semibold my-2 text-lg">iPhone 16 Pro Max</h3>
+        <p className="text-gray-600">Lost at Central Park on June 15</p>
+        <div className="flex items-center justify-between mt-4">
           <p className="text-sm text-gray-400">2 hours ago</p>
-          <Link to="#" className="text-[var(--dartmouth-green)]">
+          <Link
+            to="#"
+            className="text-[var(--dartmouth-green)] hover:underline"
+          >
             Details
           </Link>
         </div>
