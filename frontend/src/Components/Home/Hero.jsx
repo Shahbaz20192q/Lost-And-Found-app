@@ -31,26 +31,38 @@ const Hero = () => {
           className="h-48 w-48 sm:h-56 sm:w-56 lg:h-64 lg:w-64"
           viewBox="0 0 200 200"
         >
+          {/* Outer circle */}
+          <circle cx="100" cy="100" r="100" fill="#52b788" opacity="0.8" />
+
+          {/* Inner circle */}
+          <circle cx="100" cy="100" r="70" fill="#d8f3dc" opacity="0.9" />
+
+          {/* Centered Search Icon */}
+          {/* Magnifying glass circle */}
           <circle
             cx="100"
             cy="100"
-            r="80"
-            fill="#52b788"
-            opacity="0.8"
-          ></circle>
+            r="30"
+            fill="none"
+            stroke="#1b4332"
+            strokeWidth="8"
+          />
+
+          {/* Magnifying glass handle */}
           <path
-            d="M100 50 C130 50, 150 70, 150 100 C150 130, 130 150, 100 150 C70 150, 50 130, 50 100 C50 70, 70 50, 100 50"
-            fill="#d8f3dc"
-            opacity="0.9"
-          ></path>
-          <circle cx="100" cy="100" r="30" fill="#1b4332"></circle>
+            d="M125 125 L150 150"
+            stroke="#1b4332"
+            strokeWidth="8"
+            strokeLinecap="round"
+          />
+
+          {/* Optional: Plus sign inside search circle to represent found items */}
           <path
-            d="M100 80 L100 100 L120 100"
-            stroke="white"
+            d="M100 85 L100 115 M85 100 L115 100"
+            stroke="#1b4332"
             strokeWidth="4"
             strokeLinecap="round"
-          ></path>
-          <circle cx="100" cy="100" r="5" fill="white"></circle>
+          />
         </svg>
       </div>
     </div>

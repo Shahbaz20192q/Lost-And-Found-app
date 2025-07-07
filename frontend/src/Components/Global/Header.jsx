@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "./Link";
 import Button1 from "../Buttons/Button1";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link as RouterLink } from "react-router-dom";
 
 const Header = () => {
   const [navIsActive, setNavIsActive] = useState(false);
@@ -9,29 +10,32 @@ const Header = () => {
     setNavIsActive(!navIsActive);
   };
   return (
-    <div className="bg-[var(--brunswick-green)] text-white w-full">
+    <div className="bg-[var(--brunswick-green)] text-white w-full sticky top-0 z-50">
       <div className="px-10 py-2 flex items-center justify-between relative max-sm:px-4 ">
-        <div className="flex items-center justify-start gap-1">
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-[var(--mint-2)]"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              ></path>
-            </svg>
-          </span>
-          <span>
-            <span className="font-bold text-3xl">FindIt</span>
-          </span>
-        </div>
+        <RouterLink to="/">
+          <div className="flex items-center justify-start gap-1">
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 text-[var(--mint-2)]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </span>
+            <span>
+              <span className="font-bold text-3xl">FindIt</span>
+            </span>
+          </div>
+        </RouterLink>
+
         <nav className="max-md:hidden">
           <ul className="flex items-center justify-start gap-4 mt-2">
             <li>
