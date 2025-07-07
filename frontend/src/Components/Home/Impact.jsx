@@ -7,19 +7,21 @@ const Impact = () => {
         Our Impact
       </h2>
       <div className="flex items-center justify-center mt-10 gap-10 flex-wrap text-center">
-        <div className="bg-white px-10 py-7">
+        <div className="bg-white px-10 py-7 max-sm:w-full ">
           <h3 className="text-5xl font-extrabold text-[var(--dartmouth-green)] ">
             1,234
           </h3>
           <p className="font-bold text-gray-600">Items Reported</p>
         </div>
-        <div className="bg-white px-10 py-7">
+
+        <div className="bg-white px-10 py-7 max-sm:w-full ">
           <h3 className="text-5xl font-extrabold text-[var(--dartmouth-green)] ">
             789
           </h3>
           <p className="font-bold text-gray-600">Items Returned</p>
         </div>
-        <div className="bg-white px-10 py-7">
+
+        <div className="bg-white px-10 py-7 max-sm:w-full ">
           <h3 className="text-5xl font-extrabold text-[var(--dartmouth-green)] ">
             95%
           </h3>
