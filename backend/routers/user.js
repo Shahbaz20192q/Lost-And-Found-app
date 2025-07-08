@@ -88,7 +88,6 @@ router.post("/register", upload.single("profilePicture"), async (req, res) => {
       success: true,
       message: "User registered successfully",
       token,
-      loggedInUser: newUser,
     });
   } catch (error) {
     console.log(error);
@@ -104,9 +103,10 @@ router.post("/register", upload.single("profilePicture"), async (req, res) => {
  */
 router.post("/login", async (req, res) => {
   try {
-    const { email, username, password } = req.body;
+    const { emailOrusername, password } = req.body;
+
     const existingUser = await UserSchema.findOne({
-      $or: [{ email: email }, { username: username }],
+      $or: [{ email: emailOrusername }, { username: emailOrusername }],
     }).select("-__v -otp");
     if (!existingUser) {
       return res.json({ success: false, message: "User not found" });
@@ -122,8 +122,29 @@ router.post("/login", async (req, res) => {
     res.json({
       success: true,
       token,
-      loggedInUser: existingUser,
+      message: "User Login Successfully",
     });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+});
+
+/**
+ * @route   POST /user/me
+ * @desc    Get Logged-in user details
+ * @access  Private
+ * @body    token in Authorization header
+ */
+router.post("/me", loggedInUser, async (req, res) => {
+  try {
+    const user = await UserSchema.findById(req.user._id).select(
+      "-__v -otp -password"
+    );
+    if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+    res.json({ success: true, data: user });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });

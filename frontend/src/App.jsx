@@ -4,14 +4,20 @@ import Home from "./Pages/Home";
 import Header from "./Components/Global/Header";
 import Footer from "./Components/Global/Footer/Footer";
 import Register from "./Pages/Register";
+import Login from "./Pages/Login";
+import ForgotPassword from "./Pages/ForgotPassword";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/about" element={<div>About</div>} />
       </Routes>
       <Footer />

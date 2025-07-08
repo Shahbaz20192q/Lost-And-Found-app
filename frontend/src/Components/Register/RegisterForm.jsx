@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoCameraOutline } from "react-icons/io5";
 import FormInput from "./FormInput";
+import { Link, useNavigate } from "react-router-dom";
+import { ContextStore } from "../../Context/ContextStore";
+import { toast } from "react-toastify";
 
 const RegisterForm = () => {
-  const baseUrl = "http://localhost:3001";
+  const { baseUrl, btnLoader, setBtnLoader } = useContext(ContextStore);
+  const navigate = useNavigate();
+
   const [imgUrl, setImgUrl] = useState(`${baseUrl}/images/default.png`);
   const [selectedFile, setSelectedFile] = useState(null);
 
@@ -17,8 +22,38 @@ const RegisterForm = () => {
     }
   }
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    setBtnLoader(true); // Set the loader state to true
+    const formData = new FormData(e.target);
+    try {
+      const res = await fetch(`${baseUrl}/user/register`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success(data.message);
+        sessionStorage.setItem("token", data.token);
+        e.target.reset(); // Reset the form
+        setImgUrl(`${baseUrl}/images/default.png`); // Reset the image to default
+        navigate("/");
+      } else {
+        toast.error(data.message || "Registration failed, please try again.");
+      }
+    } catch (error) {
+      toast.error("Somethin is wrong please try again");
+    } finally {
+      setBtnLoader(false); // Reset the loader state
+    }
+  };
+
   return (
-    <form className="mt-20 max-w-2xl m-auto rounded-lg shadow-lg bg-white overflow-hidden mb-10 pb-10 ">
+    <form
+      className="mt-20 max-w-2xl m-auto rounded-lg shadow-lg bg-white overflow-hidden mb-10 pb-10 "
+      onSubmit={submitHandler}
+      encType="multipart/form-data"
+    >
       <div className="form-header w-full text-center p-5 bg-gradient-to-tl from-[var(--sea-green)] to-[var(--dartmouth-green)] ">
         <h1 className="text-3xl font-bold  text-white">Create an Account</h1>
         <p className="text-[var(--celadon)] mt-2 ">
@@ -60,6 +95,7 @@ const RegisterForm = () => {
             label="Full Name"
             id="full-name"
             name="fullName"
+            required={true}
           />
 
           <FormInput
@@ -68,6 +104,7 @@ const RegisterForm = () => {
             label="User Name"
             id="user-name"
             name="username"
+            required={true}
           />
         </div>
         <FormInput
@@ -75,7 +112,8 @@ const RegisterForm = () => {
           placeholder="Enter Your Email"
           label="Email Address"
           id="email-address"
-          name="username"
+          name="email"
+          required={true}
         />
 
         <FormInput
@@ -92,11 +130,26 @@ const RegisterForm = () => {
           label="Password"
           id="passwor"
           name="password"
+          required={true}
         />
         <button className="bg-[var(--dartmouth-green)] w-full mt-10 p-2 text-white rounded-sm ">
-          {" "}
-          Create Accoutn{" "}
+          {btnLoader ? (
+            <span className="btn-loader"></span>
+          ) : (
+            <span className="text-lg font-semibold">Create Account</span>
+          )}
         </button>
+      </div>
+      <div class="mt-6 text-center">
+        <p class="text-gray-600">
+          Already have an account?{" "}
+          <Link
+            to="/login"
+            class="text-[var(--mint-2)] hover:text-sea-green font-medium"
+          >
+            Login
+          </Link>
+        </p>
       </div>
     </form>
   );
