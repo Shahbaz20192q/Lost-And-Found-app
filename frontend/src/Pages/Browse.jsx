@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import ItemCard from "../Components/Home/LatestRepor/ItemCard";
+import { ContextStore } from "../Context/ContextStore";
 
 const Browse = () => {
+  const { items, baseUrl } = useContext(ContextStore);
+
   return (
     <div class="max-w-7xl mx-auto my-10">
       <div class="text-center mb-8">
@@ -144,7 +147,9 @@ const Browse = () => {
         id="items-container"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
       >
-        <ItemCard />
+        {items.map((item) => (
+          <ItemCard item={item} baseUrl={baseUrl} key={item._id} />
+        ))}
       </div>
 
       <div id="no-results" class="hidden text-center py-12">

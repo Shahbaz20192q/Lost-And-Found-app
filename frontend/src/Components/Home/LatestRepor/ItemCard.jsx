@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ItemCard = ({ cat }) => {
+const ItemCard = ({ item, baseUrl }) => {
   return (
     <div class="item-card bg-white rounded-lg shadow-md overflow-hidden">
       <div class="relative">
         <img
-          src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzMzMzMzMyIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+aVBob25lPC90ZXh0Pjwvc3ZnPg=="
+          src={`${baseUrl}/images/${item.type == "lost" ? "lost" : "found"}/${
+            item.images[0]
+          }`}
           alt="iPhone 13 Pro - Black"
           class="w-full h-48 object-cover"
         />
         <div class="absolute top-3 left-3">
-          {cat == "lost" ? (
+          {item.type == "lost" ? (
             <span class="px-3 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
               🔍 LOST
             </span>
@@ -26,17 +28,15 @@ const ItemCard = ({ cat }) => {
       <div class="p-6">
         <div class="flex justify-between items-start mb-3">
           <h3 class="text-lg font-semibold text-[var(--brunswick-green)]">
-            iPhone 13 Pro - Black
+            {item.title}
           </h3>
           <span class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
-            Electronics
+            {item.category}
           </span>
         </div>
 
         <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-          Lost my black iPhone 13 Pro with a clear case. Has a small crack on
-          the bottom right corner. Contains important work contacts and family
-          photos.
+          {item.description}
         </p>
 
         <div class="flex items-center text-sm text-gray-500 mb-3">
@@ -60,7 +60,10 @@ const ItemCard = ({ cat }) => {
               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
             ></path>
           </svg>
-          <span>Los Angeles, California</span>
+          <span>
+            {" "}
+            {item.location.state}, {item.location.city}
+          </span>
         </div>
 
         <div class="flex items-center text-sm text-gray-500 mb-4">
@@ -78,30 +81,27 @@ const ItemCard = ({ cat }) => {
               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
             ></path>
           </svg>
-          <span>Lost on Dec 15, 2023</span>
+          <span>
+            {" "}
+            {new Date(
+              item.type == "lost" ? item.dateLost : item.dateFound
+            ).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}{" "}
+          </span>
         </div>
 
         <div class="flex flex-wrap gap-1 mb-4">
           <span class="px-2 py-1 bg-[var(--celadon)] text-[var(--dartmouth-green)] text-xs rounded-full">
             iphone
           </span>
-
-          <span class="px-2 py-1 bg-[var(--celadon)] text-[var(--dartmouth-green)] text-xs rounded-full">
-            black
-          </span>
-
-          <span class="px-2 py-1 bg-[var(--celadon)] text-[var(--dartmouth-green)] text-xs rounded-full">
-            cracked
-          </span>
-
-          <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-            +1 more
-          </span>
         </div>
 
         <div class="flex gap-2">
           <button
-            onclick="contactViaPhone('(555) 123-4567')"
+            onClick="contactViaPhone('(555) 123-4567')"
             class="flex-1 bg-[var(--sea-green)] hover:bg-[var(--dartmouth-green)] text-white text-sm font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center"
           >
             <svg
@@ -121,7 +121,7 @@ const ItemCard = ({ cat }) => {
             Call
           </button>
           <button
-            onclick="contactViaEmail('john.doe@email.com', 'iPhone 13 Pro - Black')"
+            onClick="contactViaEmail('john.doe@email.com', 'iPhone 13 Pro - Black')"
             class="flex-1 bg-[var(--mint-2)] hover:bg-[var(--sea-green)] text-white text-sm font-semibold py-2 px-3 rounded-lg transition-colors flex items-center justify-center"
           >
             <svg
