@@ -8,6 +8,11 @@ const foundApplicationSchema = new mongoose.Schema(
       trim: true,
       maxlength: 100,
     },
+    type: {
+      type: String,
+      required: true,
+      default: "found",
+    },
     description: {
       type: String,
       required: true,

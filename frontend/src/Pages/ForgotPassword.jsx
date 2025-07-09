@@ -1,10 +1,43 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import FormInput from "../Components/Register/FormInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ContextStore } from "../Context/ContextStore";
+import { toast } from "react-toastify";
 
 const ForgotPassword = () => {
+  const { baseUrl } = useContext(ContextStore);
   const [isOtpSent, setIsOtpSent] = useState(false);
-  const [isVarified, setIsisVarified] = useState(false);
+  const navigate = useNavigate();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const userData = Object.fromEntries(formData.entries());
+    try {
+      const endPoin = `${baseUrl}/user/${
+        isOtpSent ? "changePasswordOtp" : "generateOtp"
+      }`;
+
+      const res = await fetch(endPoin, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast.success(data.message);
+        setIsOtpSent(true);
+        isOtpSent && navigate("/login");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error("Somthing is wrong try again");
+      console.log(error);
+    }
+  };
 
   return (
     <div class="max-w-md w-full m-auto my-10">
@@ -61,33 +94,35 @@ const ForgotPassword = () => {
               </div>
             </div>
 
-            <form id="email-form" class="space-y-6">
+            <form id="email-form" class="space-y-6" onSubmit={submitHandler}>
               <FormInput
                 label="Email"
                 placeholder="Enter Your Email"
                 name="email"
                 type="email"
                 id="email"
+                required={true}
               />
 
               {isOtpSent && (
-                <FormInput
-                  label="OTP"
-                  placeholder="Enter Your OTP"
-                  name="otp"
-                  type="text"
-                  id="otp"
-                />
-              )}
-
-              {isVarified && (
-                <FormInput
-                  label="New Password"
-                  placeholder="Enter Your New Password"
-                  name="newPassword"
-                  type="password"
-                  id="new-password"
-                />
+                <>
+                  <FormInput
+                    label="OTP"
+                    placeholder="Enter Your OTP"
+                    name="otp"
+                    type="text"
+                    id="otp"
+                    required={true}
+                  />
+                  <FormInput
+                    label="New Password"
+                    placeholder="Enter Your New Password"
+                    name="newPassword"
+                    type="password"
+                    id="new-password"
+                    required={true}
+                  />
+                </>
               )}
 
               <button
@@ -109,8 +144,6 @@ const ForgotPassword = () => {
                   ></path>
                 </svg>
                 {isOtpSent ? (
-                  <span>Verify OTP</span>
-                ) : isVarified ? (
                   <span>Change Password</span>
                 ) : (
                   <span>Send Verification Code</span>

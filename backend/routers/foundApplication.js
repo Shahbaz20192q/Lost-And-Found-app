@@ -140,6 +140,7 @@ router.post(
       res.status(201).json({
         success: true,
         data: newFoundApplication,
+        message: "Your found report register successfully",
       });
     } catch (error) {
       console.log(error);

@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Link from "./Link";
 import Button1 from "../Buttons/Button1";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link as RouterLink } from "react-router-dom";
+import { ContextStore } from "../../Context/ContextStore";
+import UserProfileDropdown from "./UserProfileDropdown";
 
 const Header = () => {
   const [navIsActive, setNavIsActive] = useState(false);
+  const { token } = useContext(ContextStore);
   const showNav = () => {
     setNavIsActive(!navIsActive);
   };
@@ -42,6 +45,9 @@ const Header = () => {
               <Link text="Home" href="/" />
             </li>
             <li>
+              <Link text="Brobrowse" href="/browse" />
+            </li>
+            <li>
               <Link text="About" href="/about" />
             </li>
             <li>
@@ -50,8 +56,16 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex items-center justify-end gap-4 mt-2 max-sm:gap-2 ">
-          <Button1 href="/login" text="Login" />
-          <Button1 href="/register" text="Register" />
+          {!token ? (
+            <>
+              <Button1 href="/login" text="Login" />
+              <Button1 href="/register" text="Register" />
+            </>
+          ) : (
+            <>
+              <UserProfileDropdown />
+            </>
+          )}
 
           <div className="md:hidden" onClick={showNav}>
             <RxHamburgerMenu className="text-3xl cursor-pointer" />
@@ -66,8 +80,12 @@ const Header = () => {
                   <Link text="Home" href="/" />
                 </li>
                 <li onClick={showNav}>
+                  <Link text="Brobrowse" href="/browse" />
+                </li>
+                <li onClick={showNav}>
                   <Link text="About" href="/about" />
                 </li>
+
                 <li onClick={showNav}>
                   <Link text="Contact" href="/contact" />
                 </li>

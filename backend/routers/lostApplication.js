@@ -131,6 +131,7 @@ router.post(
       res.status(201).json({
         success: true,
         data: newLostApplication,
+        message: "Your report registerd...",
       });
     } catch (error) {
       console.log(error);

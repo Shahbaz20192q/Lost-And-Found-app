@@ -6,7 +6,8 @@ import { ContextStore } from "../../Context/ContextStore";
 import { toast } from "react-toastify";
 
 const RegisterForm = () => {
-  const { baseUrl, btnLoader, setBtnLoader } = useContext(ContextStore);
+  const { baseUrl, btnLoader, setBtnLoader, setToken } =
+    useContext(ContextStore);
   const navigate = useNavigate();
 
   const [imgUrl, setImgUrl] = useState(`${baseUrl}/images/default.png`);
@@ -35,6 +36,7 @@ const RegisterForm = () => {
       if (data.success) {
         toast.success(data.message);
         sessionStorage.setItem("token", data.token);
+        setToken(data.token);
         e.target.reset(); // Reset the form
         setImgUrl(`${baseUrl}/images/default.png`); // Reset the image to default
         navigate("/");

@@ -5,7 +5,8 @@ import { ContextStore } from "../Context/ContextStore";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  const { baseUrl, token, btnLoader, setBtnLoader } = useContext(ContextStore);
+  const { baseUrl, token, btnLoader, setBtnLoader, setToken } =
+    useContext(ContextStore);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const Login = () => {
       const data = await res.json();
       if (data.success) {
         sessionStorage.setItem("token", data.token);
+        setToken(data.token);
         e.target.reset(); // Reset the form
         navigate("/");
         toast.success(data.message);

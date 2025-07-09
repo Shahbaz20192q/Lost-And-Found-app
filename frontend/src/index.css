@@ -16,6 +16,11 @@
   --dark-green: #081c15;
 }
 
+*::selection {
+  background-color: #d8f3dc;
+  color: #1b4332;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }

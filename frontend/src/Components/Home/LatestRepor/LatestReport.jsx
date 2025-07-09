@@ -18,8 +18,7 @@ const LatestReport = ({ catText, mainText }) => {
           View All
         </Link>
       </div>
-      <div className="mt-6 md:mt-10 flex items-center justify-center sm:justify-start flex-wrap gap-4 md:gap-5">
-        <ItemCard cat="lost" />
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
         <ItemCard cat="lost" />
         <ItemCard cat="lost" />
         <ItemCard cat="lost" />

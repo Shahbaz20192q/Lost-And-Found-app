@@ -107,7 +107,7 @@ router.post("/login", async (req, res) => {
 
     const existingUser = await UserSchema.findOne({
       $or: [{ email: emailOrusername }, { username: emailOrusername }],
-    }).select("-__v -otp");
+    });
     if (!existingUser) {
       return res.json({ success: false, message: "User not found" });
     }

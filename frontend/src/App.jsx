@@ -7,6 +7,8 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import ForgotPassword from "./Pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
+import FoundAndLostReport from "./Pages/FoundAndLostReport";
+import Browse from "./Pages/Browse";
 
 const App = () => {
   return (
@@ -19,6 +21,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/about" element={<div>About</div>} />
+        <Route path="/lost-report" element={<FoundAndLostReport />} />
+        <Route path="/found-report" element={<FoundAndLostReport />} />
+        <Route path="/browse" element={<Browse />} />
       </Routes>
       <Footer />
     </>

@@ -15,12 +15,12 @@ const Hero = () => {
         <div className="hero-buttons flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
           <Button1
             text="Report Lost Item"
-            href="#"
+            href="/lost-report"
             className="text-[var(--dark-green)] w-full sm:w-auto"
           />
           <Button1
             text="Report Found Item"
-            href="#"
+            href="/found-report"
             className="w-full sm:w-auto"
           />
         </div>
