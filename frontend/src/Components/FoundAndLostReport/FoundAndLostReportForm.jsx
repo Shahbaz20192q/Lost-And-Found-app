@@ -97,36 +97,38 @@ const FoundAndLostReportForm = () => {
   };
 
   return (
-    <div class="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       <LAndFHeader location={location} />
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div class="bg-gradient-to-r from-[var(--dartmouth-green)] to-[var(--sea-green)] px-6 py-4">
-          <h2 class="text-xl font-semibold text-white">Lost Item Details</h2>
-          <p class="text-[var(--celadon)] text-sm">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="bg-gradient-to-r from-[var(--dartmouth-green)] to-[var(--sea-green)] px-6 py-4">
+          <h2 className="text-xl font-semibold text-white">
+            Lost Item Details
+          </h2>
+          <p className="text-[var(--celadon)] text-sm">
             Please fill out all required fields marked with *
           </p>
         </div>
 
         <form
           id="lost-item-form"
-          class="p-6 space-y-8"
+          className="p-6 space-y-8"
           encType="multipart/form-data"
           onSubmit={sumbitHandler}
         >
-          <div class="space-y-6">
-            <div class="border-b border-gray-200 pb-4">
-              <h3 class="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
+          <div className="space-y-6">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
+                  className="h-5 w-5 mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   ></path>
                 </svg>
@@ -164,8 +166,8 @@ const FoundAndLostReportForm = () => {
 
             <div>
               <label
-                for="category"
-                class="block text-sm font-medium text-[var(--brunswick-green)] mb-1"
+                htmlFor="category"
+                className="block text-sm font-medium text-[var(--brunswick-green)] mb-1"
               >
                 Category *
               </label>
@@ -173,7 +175,7 @@ const FoundAndLostReportForm = () => {
                 id="category"
                 name="category"
                 required=""
-                class="form-input block w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                className="form-input block w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none"
               >
                 <option value="">Select a category</option>
                 <option value="electronics">Electronics</option>
@@ -192,26 +194,26 @@ const FoundAndLostReportForm = () => {
             </div>
           </div>
 
-          <div class="space-y-6">
-            <div class="border-b border-gray-200 pb-4">
-              <h3 class="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
+          <div className="space-y-6">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
+                  className="h-5 w-5 mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                   ></path>
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   ></path>
                 </svg>
@@ -250,20 +252,20 @@ const FoundAndLostReportForm = () => {
             />
           </div>
 
-          <div class="space-y-6">
-            <div class="border-b border-gray-200 pb-4">
-              <h3 class="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
+          <div className="space-y-6">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
+                  className="h-5 w-5 mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   ></path>
                 </svg>
@@ -336,8 +338,8 @@ const FoundAndLostReportForm = () => {
             {pathname == "/lost-report" ? (
               <div>
                 <label
-                  for="dateLost"
-                  class="block text-sm font-medium text-[var(--brunswick-green)] mb-1"
+                  htmlFor="dateLost"
+                  className="block text-sm font-medium text-[var(--brunswick-green)] mb-1"
                 >
                   Date Lost *
                 </label>
@@ -345,19 +347,19 @@ const FoundAndLostReportForm = () => {
                   type="date"
                   id="dateLost"
                   name="dateLost"
-                  required="true"
-                  class="form-input block w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                  required={true}
+                  className="form-input block w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none"
                   max="2025-07-09"
                 />
-                <p class="mt-1 text-xs text-gray-500">
+                <p className="mt-1 text-xs text-gray-500">
                   When did you lose this item?
                 </p>
               </div>
             ) : (
               <div>
                 <label
-                  for="dateFound"
-                  class="block text-sm font-medium text-[var(--brunswick-green)] mb-1"
+                  htmlFor="dateFound"
+                  className="block text-sm font-medium text-[var(--brunswick-green)] mb-1"
                 >
                   Date Found *
                 </label>
@@ -366,30 +368,30 @@ const FoundAndLostReportForm = () => {
                   id="dateFound"
                   name="dateFound"
                   required="true"
-                  class="form-input block w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                  className="form-input block w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none"
                   max="2025-07-09"
                 />
-                <p class="mt-1 text-xs text-gray-500">
+                <p className="mt-1 text-xs text-gray-500">
                   When did you dateFound this item?
                 </p>
               </div>
             )}
           </div>
 
-          <div class="space-y-6">
-            <div class="border-b border-gray-200 pb-4">
-              <h3 class="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
+          <div className="space-y-6">
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-semibold text-[var(--brunswick-green)] flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
+                  className="h-5 w-5 mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   ></path>
                 </svg>
@@ -418,23 +420,23 @@ const FoundAndLostReportForm = () => {
               />
             </div>
           </div>
-          <div class="pt-6 border-t border-gray-200">
-            <div class="flex flex-col sm:flex-row gap-4">
+          <div className="pt-6 border-t border-gray-200">
+            <div className="flex flex-col sm:flex-row gap-4">
               <button
                 type="submit"
-                class="flex-1 bg-[var(--sea-green)] hover:bg-[var(--dartmouth-green)] text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-md flex items-center justify-center"
+                className="flex-1 bg-[var(--sea-green)] hover:bg-[var(--dartmouth-green)] text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-md flex items-center justify-center"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mr-2"
+                  className="h-5 w-5 mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
                   ></path>
                 </svg>
@@ -442,7 +444,7 @@ const FoundAndLostReportForm = () => {
                 Report
               </button>
             </div>
-            <p class="mt-3 text-xs text-gray-500 text-center">
+            <p className="mt-3 text-xs text-gray-500 text-center">
               By submitting this form, you agree to our Terms of Service and
               Privacy Policy
             </p>

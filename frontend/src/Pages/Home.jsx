@@ -8,8 +8,7 @@ const Home = () => {
   return (
     <div className="">
       <Hero />
-      <LatestReport catText="Lost Items" mainText={true} />
-      <LatestReport catText="Found Items" />
+      <LatestReport />
       <Impact />
       <HowItWork />
     </div>

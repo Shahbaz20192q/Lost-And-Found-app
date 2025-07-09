@@ -17,6 +17,9 @@ const ContextProvider = ({ children }) => {
   // Fetch logged in user
   const fetchLoggdIn = async () => {
     try {
+      if (!sessionStorage.getItem("token")) {
+        return;
+      }
       const res = await fetch(`${baseUrl}/user/me`, {
         method: "POST",
         headers: {
@@ -66,7 +69,7 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     fetchLoggdIn();
     fetchAllItems(); // Fetch items when component mounts
-  }, [token]); // Re-fetch if token changes
+  }, [token]);
 
   const contextValue = {
     baseUrl,
@@ -79,6 +82,7 @@ const ContextProvider = ({ children }) => {
     items, // Make items available in context
     loadingItems, // Make loading state available
     fetchAllItems, // Allow manual refresh
+    setItems,
   };
 
   return (

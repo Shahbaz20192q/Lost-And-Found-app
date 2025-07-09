@@ -138,9 +138,10 @@ router.post("/login", async (req, res) => {
  */
 router.post("/me", loggedInUser, async (req, res) => {
   try {
-    const user = await UserSchema.findById(req.user._id).select(
-      "-__v -otp -password"
-    );
+    const user = await UserSchema.findById(req.user._id)
+      .select("-__v -otp -password")
+      .populate("lostApplications")
+      .populate("foundApplications");
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
