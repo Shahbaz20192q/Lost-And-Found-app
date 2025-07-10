@@ -9,6 +9,7 @@ import ForgotPassword from "./Pages/ForgotPassword";
 import { ToastContainer } from "react-toastify";
 import FoundAndLostReport from "./Pages/FoundAndLostReport";
 import Browse from "./Pages/Browse";
+import SingleItem from "./Pages/SingleItem";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/lost-report" element={<FoundAndLostReport />} />
         <Route path="/found-report" element={<FoundAndLostReport />} />
         <Route path="/browse" element={<Browse />} />
+        <Route path="/browse/:id" element={<SingleItem />} />
       </Routes>
       <Footer />
     </>

@@ -1,10 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ItemCard = ({ item, baseUrl }) => {
+  const navigate = useNavigate();
+  const singleItemHandler = () => {
+    navigate(`/browse/${item._id}`);
+  };
   return (
     <div className="item-card bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="relative">
+      <div className="relative cursor-pointer " onClick={singleItemHandler}>
         <img
           src={`${baseUrl}/images/${item.type == "lost" ? "lost" : "found"}/${
             item.images[0]

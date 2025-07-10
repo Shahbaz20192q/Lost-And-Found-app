@@ -32,9 +32,16 @@ router.get("/:id", async (req, res) => {
     const id = req.params.id;
     const lostApplication = await LostApplicationSchema.findById(id);
     if (!lostApplication) {
-      return res.status(404).json({
-        success: false,
-        message: "Lost Application not found",
+      const foundApplication = await FoundApplicationSchema.findById(id);
+      if (!foundApplication) {
+        return res.status(404).json({
+          success: false,
+          message: "Application not found",
+        });
+      }
+      return res.json({
+        success: true,
+        data: foundApplication,
       });
     }
     res.json({
