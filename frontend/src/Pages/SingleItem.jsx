@@ -32,15 +32,15 @@ const SingleItem = () => {
   }, [id]);
 
   return (
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
-        <div class="p-6 border-b lg:border-b-0 lg:border-r border-gray-200">
-          <div class="mb-4">
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+        <div className="p-6 border-b lg:border-b-0 lg:border-r border-gray-200">
+          <div className="mb-4">
             {item?.type == "lost" ? (
-              <span class="px-4 py-1.5 rounded-full text-sm font-semibold bg-red-100 text-red-800 inline-flex items-center">
+              <span className="px-4 py-1.5 rounded-full text-sm font-semibold bg-red-100 text-red-800 inline-flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 mr-1"
+                  className="h-4 w-4 mr-1"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -55,13 +55,13 @@ const SingleItem = () => {
                 LOST ITEM
               </span>
             ) : (
-              <span class="px-4 py-1.5 rounded-full text-sm font-semibold bg-green-100 text-green-800 inline-flex items-center">
+              <span className="px-4 py-1.5 rounded-full text-sm font-semibold bg-green-100 text-green-800 inline-flex items-center">
                 FOUND ITEM
               </span>
             )}
           </div>
 
-          <div class="relative mb-4 h-[400px] rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+          <div className="relative mb-4 h-[400px] rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
             <img
               id="main-image"
               src={`${baseUrl}/images/${
@@ -78,11 +78,11 @@ const SingleItem = () => {
                   prev > 0 ? prev - 1 : item.images.length - 1
                 )
               }
-              class="absolute left-2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 focus:outline-none transition-all"
+              className="absolute left-2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 focus:outline-none transition-all"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-800"
+                className="h-6 w-6 text-gray-800"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -102,11 +102,11 @@ const SingleItem = () => {
                   prev < item.images.length - 1 ? prev + 1 : 0
                 )
               }
-              class="absolute right-2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 focus:outline-none transition-all"
+              className="absolute right-2 bg-white bg-opacity-70 hover:bg-opacity-100 rounded-full p-2 focus:outline-none transition-all"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 text-gray-800"
+                className="h-6 w-6 text-gray-800"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -144,18 +144,18 @@ const SingleItem = () => {
           </div>
         </div>
 
-        <div class="p-6">
-          <div class="flex justify-between items-start mb-4">
-            <h1 class="text-2xl font-bold text-[var(--brunswick-green)]">
+        <div className="p-6">
+          <div className="flex justify-between items-start mb-4">
+            <h1 className="text-2xl font-bold text-[var(--brunswick-green)]">
               {item?.title}
             </h1>
           </div>
 
-          <div class="mb-6">
-            <div class="flex items-center text-sm text-gray-500 mb-2">
+          <div className="mb-6">
+            <div className="flex items-center text-sm text-gray-500 mb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 mr-1"
+                className="h-4 w-4 mr-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -177,10 +177,10 @@ const SingleItem = () => {
                 })}
               </span>
             </div>
-            <div class="flex items-center text-sm text-gray-500 mb-2">
+            <div className="flex items-center text-sm text-gray-500 mb-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 mr-1"
+                className="h-4 w-4 mr-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -203,10 +203,10 @@ const SingleItem = () => {
                 {item?.location?.address}
               </span>
             </div>
-            <div class="flex items-center text-sm text-gray-500">
+            <div className="flex items-center text-sm text-gray-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 mr-1"
+                className="h-4 w-4 mr-1"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -222,18 +222,18 @@ const SingleItem = () => {
             </div>
           </div>
 
-          <div class="mb-6">
-            <h2 class="text-lg font-semibold text-[var(--brunswick-green)] mb-2">
+          <div className="mb-6">
+            <h2 className="text-lg font-semibold text-[var(--brunswick-green)] mb-2">
               Description
             </h2>
-            <p class="text-gray-600">{item?.description}</p>
+            <p className="text-gray-600">{item?.description}</p>
           </div>
 
-          <div class="mb-6">
-            <h2 class="text-lg font-semibold text-[var(--brunswick-green)] mb-2">
+          <div className="mb-6">
+            <h2 className="text-lg font-semibold text-[var(--brunswick-green)] mb-2">
               Tags
             </h2>
-            <div class="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2">
               {item?.tags?.map((t, index) => (
                 <span
                   className="px-2 py-1 bg-[var(--celadon)] text-[var(--dartmouth-green)] text-xs rounded-full"
@@ -245,8 +245,8 @@ const SingleItem = () => {
             </div>
           </div>
 
-          <div class="border-t border-gray-200 pt-6 mb-6">
-            <h2 class="text-lg font-semibold text-[var(--brunswick-green)] mb-4">
+          <div className="border-t border-gray-200 pt-6 mb-6">
+            <h2 className="text-lg font-semibold text-[var(--brunswick-green)] mb-4">
               Contact Information
             </h2>
             <div className="flex gap-2">

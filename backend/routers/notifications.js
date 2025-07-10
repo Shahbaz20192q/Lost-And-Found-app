@@ -47,6 +47,32 @@ router.get("/", loggedInUser, async (req, res) => {
 });
 
 /**
+ * @route   GET /notifications/read/id
+ * @desc    Read notification
+ * @access  Private
+ */
+router.get("/read/:id", async (req, res) => {
+  try {
+    const notificationId = req.params.id;
+    const notification = await NotificationSchema.findById(notificationId);
+
+    if (!notification) {
+      return res.status(404).json({
+        success: false,
+        message: "Notification not found.",
+      });
+    }
+
+    notification.read = true;
+    await notification.save();
+    res.json({ success: true, data: notification });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+/**
  * @route   GET /notifications/:id
  * @desc    Get a single notification by ID
  * @access  Private

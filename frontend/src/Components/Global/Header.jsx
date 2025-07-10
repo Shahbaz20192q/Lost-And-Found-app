@@ -5,6 +5,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { Link as RouterLink } from "react-router-dom";
 import { ContextStore } from "../../Context/ContextStore";
 import UserProfileDropdown from "./UserProfileDropdown";
+import NotificationsDropdown from "./NotificationsDropdown";
 
 const Header = () => {
   const [navIsActive, setNavIsActive] = useState(false);
@@ -13,8 +14,8 @@ const Header = () => {
     setNavIsActive(!navIsActive);
   };
   return (
-    <div className="bg-[var(--brunswick-green)] text-white w-full sticky top-0 z-50">
-      <div className="px-10 py-2 flex items-center justify-between relative max-sm:px-4 ">
+    <div className="bg-[var(--brunswick-green)] text-white w-full sticky top-0 z-50  ">
+      <div className="px-10 py-2 flex items-center justify-between relative max-sm:px-4">
         <RouterLink to="/">
           <div className="flex items-center justify-start gap-1">
             <span>
@@ -63,6 +64,7 @@ const Header = () => {
             </>
           ) : (
             <>
+              <NotificationsDropdown />
               <UserProfileDropdown />
             </>
           )}
