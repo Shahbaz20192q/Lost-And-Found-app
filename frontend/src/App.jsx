@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import FoundAndLostReport from "./Pages/FoundAndLostReport";
 import Browse from "./Pages/Browse";
 import SingleItem from "./Pages/SingleItem";
+import UserProfile from "./Pages/UserProfile";
 
 const App = () => {
   return (
@@ -26,6 +27,8 @@ const App = () => {
         <Route path="/found-report" element={<FoundAndLostReport />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/browse/:id" element={<SingleItem />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/profile/lost" element={<UserProfile />} />
       </Routes>
       <Footer />
     </>

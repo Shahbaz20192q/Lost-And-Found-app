@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema(
     },
     profilePicture: {
       type: String,
-      default: "/images/default.png", // Default profile picture path
+      default: "default.png", // Default profile picture path
     },
     bio: {
       type: String,

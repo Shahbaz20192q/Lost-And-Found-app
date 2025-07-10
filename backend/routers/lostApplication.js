@@ -204,11 +204,11 @@ router.put(
 );
 
 /**
- * @route DELETE /lostApplications/delete/:id
+ * @route DELETE /lostApplications/:id
  * @desc Delete lost application by ID
  * @access Private
  */
-router.delete("/delete/:id", loggedInUser, async (req, res) => {
+router.delete("/:id", loggedInUser, async (req, res) => {
   try {
     const id = req.params.id;
     const user = await UserSchema.findById(req.user._id);

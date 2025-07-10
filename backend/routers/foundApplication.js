@@ -267,12 +267,12 @@ router.put(
 );
 
 /**
- * @route   DELETE /foundApplications/delete/:id
+ * @route   DELETE /foundApplications/:id
  * @desc    Delete a found application by ID
  * @access  Private (requires authentication)
  */
 
-router.delete("/delete/:id", loggedInUser, async (req, res) => {
+router.delete("/:id", loggedInUser, async (req, res) => {
   try {
     const id = req.params.id;
     const user = await UserSchema.findById(req.user._id);
