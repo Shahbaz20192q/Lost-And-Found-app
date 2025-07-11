@@ -11,6 +11,7 @@ import FoundAndLostReport from "./Pages/FoundAndLostReport";
 import Browse from "./Pages/Browse";
 import SingleItem from "./Pages/SingleItem";
 import UserProfile from "./Pages/UserProfile";
+import About from "./Pages/About";
 
 const App = () => {
   return (
@@ -22,7 +23,6 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/about" element={<div>About</div>} />
         <Route path="/lost-report" element={<FoundAndLostReport />} />
         <Route path="/found-report" element={<FoundAndLostReport />} />
         <Route path="/browse" element={<Browse />} />
@@ -30,6 +30,9 @@ const App = () => {
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/profile/edit" element={<Register />} />
         <Route path="/profile/lost" element={<UserProfile />} />
+
+        <Route path="/about" element={<About />} />
+
         <Route
           path="/item/lost-report/edit/:id"
           element={<FoundAndLostReport />}

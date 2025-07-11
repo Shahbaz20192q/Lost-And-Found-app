@@ -51,9 +51,6 @@ const Header = () => {
             <li>
               <Link text="About" href="/about" />
             </li>
-            <li>
-              <Link text="Contact" href="/contact" />
-            </li>
           </ul>
         </nav>
         <div className="flex items-center justify-end gap-4 mt-2 max-sm:gap-2 ">
@@ -86,10 +83,6 @@ const Header = () => {
                 </li>
                 <li onClick={showNav}>
                   <Link text="About" href="/about" />
-                </li>
-
-                <li onClick={showNav}>
-                  <Link text="Contact" href="/contact" />
                 </li>
               </ul>
             </nav>

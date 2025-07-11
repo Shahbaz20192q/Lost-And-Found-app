@@ -1,7 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ContextStore } from "../../Context/ContextStore";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
+// Enable the plugin
+dayjs.extend(relativeTime);
 
 const NotificationsDropdown = () => {
   const { baseUrl, token } = useContext(ContextStore);
@@ -34,7 +39,9 @@ const NotificationsDropdown = () => {
 
   const notificationHandler = async (notification) => {
     setIsOpen(!isOpen);
-    setNotifications(notifications.filter((n) => n._id !== notification._id));
+    setNotifications(
+      notifications?.filter((n) => n?._id !== notification?._id)
+    );
     try {
       const res = await fetch(
         `${baseUrl}/notifications/read/${notification._id}`
@@ -71,14 +78,14 @@ const NotificationsDropdown = () => {
           stroke="currentColor"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
           ></path>
         </svg>
         <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-          {notifications.filter((n) => n.read == false).length}
+          {notifications?.filter((n) => n.read == false)?.length}
         </span>
       </button>
 
@@ -120,9 +127,9 @@ const NotificationsDropdown = () => {
                         stroke="currentColor"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                         ></path>
                       </svg>
@@ -140,7 +147,9 @@ const NotificationsDropdown = () => {
                         {notification?.lostApplication?.title}!
                       </p>
                     )}
-                    <p className="text-xs text-gray-500 mt-1">10 minutes ago</p>
+                    <p className="text-xs text-gray-500 mt-1">
+                      {dayjs(notification?.createdAt).fromNow()}
+                    </p>
                   </div>
                 </div>
               </div>
