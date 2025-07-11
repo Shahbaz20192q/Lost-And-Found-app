@@ -24,6 +24,10 @@ const UserProfile = () => {
   if (!token) {
     navigate("/login");
   }
+
+  const openProfileEditor = () => {
+    navigate("/profile/edit");
+  };
   return (
     <div className="min-h-screen bg-gray-100">
       <Header baseUrl={baseUrl} loggedIn={loggedIn} />
@@ -64,6 +68,13 @@ const UserProfile = () => {
               </div>
 
               <div className="p-6 tab-content" id="content-found">
+                {filterType?.length === 0 ? (
+                  <p className="text-center w-full text-red-500 ">
+                    There is no item.
+                  </p>
+                ) : (
+                  ""
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-auto max-h-[370px] ">
                   {filterType?.map((item) => (
                     <ItemCart
@@ -84,7 +95,10 @@ const UserProfile = () => {
       </div>
 
       <div className="md:hidden fixed bottom-6 right-6">
-        <button className="bg-[var(--sea-green)] text-white p-4 rounded-full shadow-lg hover:bg-[var(--dartmouth-green)] transition">
+        <button
+          onClick={openProfileEditor}
+          className="bg-[var(--sea-green)] text-white p-4 rounded-full shadow-lg hover:bg-[var(--dartmouth-green)] transition"
+        >
           <svg
             className="w-6 h-6"
             fill="none"

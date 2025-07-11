@@ -9,6 +9,7 @@ const FormInput = ({
   isTextarea,
   required,
   value,
+  onChange,
 }) => {
   return (
     <div className="flex flex-col mt-6 w-full ">
@@ -25,6 +26,7 @@ const FormInput = ({
           name={name}
           required={required}
           value={value}
+          onChange={onChange}
         />
       ) : (
         <input
@@ -35,6 +37,7 @@ const FormInput = ({
           name={name}
           required={required}
           value={value}
+          onChange={onChange}
         />
       )}
     </div>

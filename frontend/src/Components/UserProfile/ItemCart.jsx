@@ -28,6 +28,14 @@ const ItemCart = ({ item, navigate, baseUrl, fetchLoggdIn, toast, token }) => {
     }
   };
 
+  const editHandler = (item) => {
+    navigate(
+      `/item/${item.type == "lost" ? "lost-report" : "found-report"}/edit/${
+        item._id
+      }`
+    );
+  };
+
   return (
     <div className="item-card bg-white border border-gray-200 rounded-lg p-4 relative">
       <span className="badge badge-found capitalize "> {item.type} </span>
@@ -70,8 +78,11 @@ const ItemCart = ({ item, navigate, baseUrl, fetchLoggdIn, toast, token }) => {
         </div>
       </div>
       <div className="mt-3 flex justify-between  ">
-        <button className="text-xs bg-[var(--celadon)] text-[var(--brunswick-green)] px-3 py-1 rounded-full hover:bg-[var(--celadon-2)] transition">
-          View Details
+        <button
+          onClick={() => editHandler(item)}
+          className="text-xs bg-[var(--celadon)] text-[var(--brunswick-green)] px-3 py-1 rounded-full hover:bg-[var(--celadon-2)] transition"
+        >
+          Edit
         </button>
         <button
           onClick={() => deleteHander(item)}

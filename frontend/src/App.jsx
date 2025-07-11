@@ -28,7 +28,16 @@ const App = () => {
         <Route path="/browse" element={<Browse />} />
         <Route path="/browse/:id" element={<SingleItem />} />
         <Route path="/profile" element={<UserProfile />} />
+        <Route path="/profile/edit" element={<Register />} />
         <Route path="/profile/lost" element={<UserProfile />} />
+        <Route
+          path="/item/lost-report/edit/:id"
+          element={<FoundAndLostReport />}
+        />
+        <Route
+          path="/item/found-report/edit/:id"
+          element={<FoundAndLostReport />}
+        />
       </Routes>
       <Footer />
     </>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = ({ loggedIn, baseUrl }) => {
   return (
@@ -23,9 +24,12 @@ const Header = ({ loggedIn, baseUrl }) => {
             </div>
           </div>
           <div className="hidden md:block">
-            <button className="bg-white text-[var(--dartmouth-green)] px-4 py-2 rounded-lg font-medium shadow-md hover:bg-[var(--celadon)] transition">
+            <Link
+              to="/profile/edit"
+              className="bg-white text-[var(--dartmouth-green)] px-4 py-2 rounded-lg font-medium shadow-md hover:bg-[var(--celadon)] transition"
+            >
               Edit Profile
-            </button>
+            </Link>
           </div>
         </div>
       </div>

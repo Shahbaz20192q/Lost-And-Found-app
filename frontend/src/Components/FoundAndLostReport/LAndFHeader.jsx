@@ -22,7 +22,8 @@ const LAndFHeader = ({ location }) => {
         </svg>
       </div>
       <h1 className="text-4xl font-bold text-[var(--brunswick-green)] mb-2">
-        Report {pathname == "/lost-report" ? "Lost" : "Found"} Item
+        {pathname.includes("/edit") ? "Edit" : ""} Report{" "}
+        {pathname.includes("/lost-report") ? "Lost" : "Found"} Item
       </h1>
       {pathname == "/lost-report" ? (
         <p className="text-lg text-[var(--dartmouth-green)]">
