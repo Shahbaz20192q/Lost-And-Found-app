@@ -189,7 +189,6 @@ const RegisterForm = ({ pathname }) => {
       </div>
 
       <div className="profile-img text-center mt-10">
-        <p className="text-sm">Profile Picture</p>
         <input
           type="file"
           hidden
