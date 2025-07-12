@@ -6,16 +6,16 @@ const About = () => {
     <>
       <div class="relative bg-gradient-to-r from-[var(--sea-green)] to-[var(--dartmouth-green)] overflow-hidden py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:pb-28 xl:pb-32">
-            <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+          <div class="relative z-10 py-22 max-sm:py-10 ">
+            <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
               <div class="text-center ">
-                <h1 class="text-4xl tracking-tight flex w-full font-extrabold text-white sm:text-5xl md:text-6xl">
-                  <span class="-mt-12 flex items-center justify-center max-sm:absolute max-sm:w-[60px] max-sm:leading-8 max-sm:-top-5 ">
+                <h1 class="text-4xl tracking-tight flex w-full font-extrabold text-[var(--celadon)] sm:text-5xl md:text-6xl">
+                  <span class="-mt-12 flex items-center justify-center max-sm:absolute max-sm:w-[60px] max-sm:leading-8 max-sm:top-5 ">
                     About FindIt
                     <span class="absolute -z-20 ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-44 w-44 text-[var(--dark-green)] max-sm:h-28 max-sm:w-28 "
+                        className="h-44 w-44 text-[var(--brunswick-green)] max-sm:h-28 max-sm:w-28 "
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
