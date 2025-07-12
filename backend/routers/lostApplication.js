@@ -155,7 +155,7 @@ router.post(
 router.put(
   "/update/:id",
   loggedInUser,
-  upload.single("image"),
+  upload.array("images"),
   async (req, res) => {
     try {
       const id = req.params.id;

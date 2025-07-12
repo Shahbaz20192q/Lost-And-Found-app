@@ -450,7 +450,7 @@ const FoundAndLostReportForm = () => {
                     <div key={idx} className="relative">
                       <img
                         src={`${baseUrl}/images/${
-                          pathname.includes("/found/edit/") ? "found" : "lost"
+                          pathname.includes("/found-report/edit/") ? "found" : "lost"
                         }/${image}`}
                         alt={`Existing ${idx + 1}`}
                         className="object-cover w-full h-32 rounded-lg shadow-sm border"

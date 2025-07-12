@@ -23,6 +23,9 @@
   background-color: #d8f3dc;
   color: #1b4332;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: "Poppins", sans-serif;
