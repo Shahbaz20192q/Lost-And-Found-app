@@ -10,8 +10,8 @@ const About = () => {
             <main class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
               <div class="text-center ">
                 <h1 class="text-4xl tracking-tight flex w-full font-extrabold text-[var(--celadon)] sm:text-5xl md:text-6xl">
-                  <span class="-mt-12 flex items-center justify-center max-sm:absolute max-sm:w-[60px] max-sm:leading-8 max-sm:top-5 ">
-                    About FindIt
+                  <span class="-mt-12 flex items-center leading-13 justify-center max-sm:absolute max-sm:w-[60px] max-sm:leading-8 max-sm:top-5 ">
+                    About Us 
                     <span class="absolute -z-20 ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

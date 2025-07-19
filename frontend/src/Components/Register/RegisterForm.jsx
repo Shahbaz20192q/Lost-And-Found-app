@@ -197,20 +197,33 @@ const RegisterForm = ({ pathname }) => {
           accept="image/*"
           name="profilePicture"
         />
-        <label
-          htmlFor="profile-pic"
-          className="relative cursor-pointer w-36 h-36 inline-block bg-[var(--mint-2)] rounded-full overflow-hidden"
-        >
-          <img
-            className="w-full h-full m-auto object-cover"
-            src={imgUrl}
-            alt="Profile Image"
-          />
+        {isEditMode ? (
+          <label
+            htmlFor="profile-pic"
+            className="relative cursor-pointer w-36 h-36 inline-block bg-[var(--mint-2)] rounded-full overflow-hidden"
+          >
+            <img
+              className="w-full h-full m-auto object-cover"
+              src={imgUrl}
+              alt="Profile Image"
+            />
 
-          <div className="flex justify-center items-center w-full h-full absolute top-0 right-0 opacity-0 hover:opacity-70 transition-all duration-200 bg-black/50 z-50">
-            <IoCameraOutline className="w-20 h-20 text-white" />
-          </div>
-        </label>
+            <div className="flex justify-center items-center w-full h-full absolute top-0 right-0 opacity-0 hover:opacity-70 transition-all duration-200 bg-black/50 z-50">
+              <IoCameraOutline className="w-20 h-20 text-white" />
+            </div>
+          </label>
+        ) : (
+          <label
+            htmlFor=""
+            className="relative cursor-auto w-36 h-36 inline-block bg-[var(--mint-2)] rounded-full overflow-hidden"
+          >
+            <img
+              className="w-full h-full m-auto object-cover"
+              src={imgUrl}
+              alt="Profile Image"
+            />
+          </label>
+        )}
       </div>
 
       <div className="px-5">
@@ -249,16 +262,18 @@ const RegisterForm = ({ pathname }) => {
           onChange={handleInputChange}
         />
 
-        <FormInput
-          type="text"
-          placeholder="Enter Your Bio"
-          label="Bio"
-          id="bio"
-          name="bio"
-          isTextarea={true}
-          value={formData.bio}
-          onChange={handleInputChange}
-        />
+        {isEditMode && (
+          <FormInput
+            type="text"
+            placeholder="Enter Your Bio"
+            label="Bio"
+            id="bio"
+            name="bio"
+            isTextarea={true}
+            value={formData.bio}
+            onChange={handleInputChange}
+          />
+        )}
 
         {!isEditMode && (
           <FormInput

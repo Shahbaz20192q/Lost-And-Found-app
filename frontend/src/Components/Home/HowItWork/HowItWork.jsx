@@ -54,8 +54,7 @@ const HowItWork = () => {
             2. Match
           </h3>
           <p>
-            Our system matches lost and found items based on descriptions and
-            locations.
+            Our system matches lost and found items based on title & tags.
           </p>
         </div>
 
